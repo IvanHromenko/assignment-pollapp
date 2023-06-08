@@ -21,7 +21,7 @@ const Question = () => {
     };
 
     const handleSubmit = () => {
-        fetch('http://localhost:8080/api/answer-options/${selectedOption}/increment', {
+        fetch(`http://localhost:8080/api/answer-options/${selectedOption}/increment`, {
             method: "POST",
         })
         .then(() => {
@@ -34,19 +34,19 @@ const Question = () => {
     return (
         <div>
             <h2>Please choose your favourite programming language</h2>
-            {answerOptions.map((option) => {
+            {answerOptions.map((option) => (
                 <div key={option.id}>
                     <label>
                         <input
                             type="radio"
                             value={option.id}
-                            checked={selectedOption === option.id}
+                            checked={selectedOption === option.id.toString()}
                             onChange={handleOptionChange}
                         />
                         {option.answerOption}
                     </label>
                 </div>
-            })}
+            ))}
             <button onClick={handleSubmit}>Submit</button>
             {showProgress && (
                 <div>
@@ -54,6 +54,7 @@ const Question = () => {
                     {answerOptions.map((option) => (
                         <div key={option.id}>
                             <p>{option.answerOption}</p>
+                            <small>{option.numberOfSelections}</small>
                             <progress value={option.numberOfSelections} max="100"></progress>
                         </div>
                     ))}
