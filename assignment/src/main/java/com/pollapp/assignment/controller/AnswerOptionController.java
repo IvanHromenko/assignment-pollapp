@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/answer-options")
+@CrossOrigin
 public class AnswerOptionController {
 
     private final AnswerOptionService answerOptionService;

@@ -2,7 +2,6 @@ package com.pollapp.assignment.service;
 
 import com.pollapp.assignment.model.AnswerOption;
 import com.pollapp.assignment.repository.AnswerOptionRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
